@@ -131,7 +131,7 @@ def answer():
 def results():
     score = session.get("score", 0)
     total = len(QUESTIONS)
-    answers = session.get("answerrs", [])
+    answers = session.get("answers", [])
     return render_template("results.html", score=score, total=total, answers=answers)
 
 # Run the app
