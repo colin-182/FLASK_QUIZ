@@ -74,7 +74,7 @@ def home():
 def start():
     session["question_index"] = 0
     session["score"] = 0
-    session["answers"] -[]
+    session["answers"] = []
     return redirect(url_for("question"))
 
 # Route 3: Show the current question
