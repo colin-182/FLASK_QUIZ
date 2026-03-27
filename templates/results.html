@@ -20,5 +20,29 @@
     <h1 class="results__title">Good job!</h1>
     <p class="results__feedback">Solid effort - Try again and you might ace it!</p>
 {% elif score >= total * 0.4 %}
+    <div class="results__emoji">😬</div>
+    <h1 class="results__title">Not bad!</h1>
+    <p class="results__feedback">You got some right - why not try again and beat your score?</p>
+{% else %}
+    <div class="results__emoji">📚</div>
+    <h1 class="results__title">Keep studying!</h1>
+    <p class="results__feedback">Don't worry - practice makes perfect!</p>
+{% endif %}
+
+<!-- score display | score and total are the variable passed from app.py results route -->
+
+<div class="results__score">
+    <span class="results__score-number">{{ score }}</span>
+    <span class="results__score-divider">/</span>
+    <span class="results__score-total">{{ total }}</span>
+</div>
+
+
+<!-- action buttons -->
+ <div class="results__actions">
+    <!-- links to /start which resets the session -->
+     <a href="{{ url_for('start') }}" class="btn btn--primary">Play Again</a>
+     <a href="{{ url_for('home') }}" class="btn btn--ghost">Home</a>
  </div>
+</div>
 </section>
