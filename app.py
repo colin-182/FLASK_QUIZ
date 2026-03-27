@@ -57,7 +57,7 @@ QUESTIONS = [
     },
     {
         "question": "What language has the most native speakers in the world?",
-        "options": ["English", "Spanish", "Madarin", "Hindi"],
+        "options": ["English", "Spanish", "Mandarin", "Hindi"],
         "answer": "Mandarin",
     },
 ]
