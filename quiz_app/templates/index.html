@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Welcome | Quiz App{% endblock %}
+{% block content %}
+
+<section class="hero">
+    <!-- Decorative background images and orbs | done with CSS -->
+     <div class="hero__blob hero__blob--1"></div>
+     <div class="hero__blob hero__blob--2"></div>
+
+     <div class="hero__card">
+
+    <!-- Emoji banner at top -->
+     <div class="hero__badge">🧠</div>
+
+     <!-- Main heading -->
+      <h1 class="hero__title">General Knowledge Quiz</h1>
+
+    <!-- Short description -->
+     <p class="hero__subtitle">10 Questions. 4 Choices each. How many can you get right?</p>
+     
+     <!-- Stat pills - give the user a quick overview of the quiz -->
+      <div class="hero__stats">
+        <div class="hero__stat">
+            <span class="hero__stat-number">10</span>
+            <span class="hero__stat-label">Questions</span>
+        </div>
+        <div class="hero__stat">
+            <span class="hero__stat-number">4</span>
+            <span class="hero__stat-label">Choices</span>
+        </div>
+        <div class="hero__stat">
+            <span class="hero__stat-number">∞</span>
+            <span class="hero__stat-label">Attempts</span>
+        </div>
+      </div>
+      <!-- the start button links to the /start route in app.py when clicked. -->
+       <a href="{{ url_for('start') }}" class="btn btn--primary">Start Quix -></a>
+     </div>
+</section>
+
+{% endblock %}
