@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, session, request
 
-app = Flask(__name___)
+app = Flask(__name__)
 
 app.secret_key = "change-this-to-something-secret"
 
