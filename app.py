@@ -27,7 +27,7 @@ QUESTIONS = [
     },
     {
         "question": "What is the largest ocean on Earth?",
-        "options": ["Atlantic", "Indian", "Arctic" "Pacific"],
+        "options": ["Atlantic", "Indian", "Arctic", "Pacific"],
         "answer": "Pacific",
     },
     {
