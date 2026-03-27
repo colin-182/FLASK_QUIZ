@@ -45,4 +45,32 @@
      <a href="{{ url_for('home') }}" class="btn btn--ghost">Home</a>
  </div>
 </div>
+
+<!-- Answer Review | answers is the list of dictionaries that was built earlier in app.py -->
+<div class="results__review">
+    <h2 class="results__review-title">Answer Review</h2>
+
+    {% for item in answers %}
+    <div c;ass="review-item {% if item.right %}review-item--correct{% else %}review-item--wrong{% endif %}">
+
+<!-- tick or cross icon -->
+ <div class="review-item__icon">
+    {% if item.right %}✅{% else %}❌{% endif %}
+ </div>
+
+ <div class="review-item__body">
+    <p class="review-item__question">Q{{ loop.index }}: {{ item.question }}</p>
+    {% if not item.right %}
+    <p class="review-item__chosen">Your answer: {{ item.chosen }}</p>
+    {% endif %}
+
+    <p class="review-item__correct">Correct answer: {{ item.correct }}</p>
+ </div>
+    </div>
+    {% endfor %}
+
+</div>
+
 </section>
+
+{% endblock %}
