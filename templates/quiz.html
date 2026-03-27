@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Question {{ number }} | Quiz App{% endblock %}
+{% block content %}
+
+<section class="quiz">
+
+<!-- Progress bar -->
+ <div class="quiz__progress-wrap">
+    <div class="quiz__progress-info">
+        <span class="quiz__progress-label">Question {{ number }} of {{ total }}</span>
+        <span class="quiz__progress-pct">{{ (number / total * 100) | int }}%</span>
+    </div>
+    <div class="quiz__progress-bar">
+        <div class="quiz__progress-fill" style="width: {{ (number / total * 100) | int }}%"></div>
+    </div>
+ </div>
+
+ <!-- Question Card -->
+  <div class="quiz__card">
+ <!-- Question number badge -->
+    <span class="quiz__badge">Q{{ number }}</span>
+
+<!-- question.question accesses the key in the current question dictionary passed from app.py -->
+    <h2 class="quiz__question">{{ question.question }}</h2>
+
+<!-- Answer form | action="/answer" means the form submits to the /answer route. method-"post" -->
+
+    <form action="/answer" method="POST" class="quiz__form" id="quizForm">
+
+        <!-- question.options is the list of 4 choices. Each button submits the form with its own text as the value -->
+    {% for option in question.options %}
+    <button
+    type="submit"
+    name="choice"
+    value="{{ option }}"
+    class="quiz__option"
+    >
+    <span class="quiz__option-letter">{{ "ABCD"[loop.index0] }}</span>
+    <span class="quiz__option-text">{{ option }}</span>
+</button>
+{% endfor %}
+
+    </form>
+
+  </div>
+</section>
+
+{% endblock %}
