@@ -120,3 +120,23 @@ def answer():
     # Move to the next question
     session["question_index"] = index + 1
 
+    # If there are more questions, show the next one. Otherwise show results
+    if session["question_index"] < len(QUESTIONS):
+        return redirect(url_for("question"))
+    else:
+        return redirect(url_for("results"))
+
+# Route 5: Results page. Reads final score from the session and displays it
+@app.route("/results")
+def results():
+    score = session.get("score", 0)
+    total = len(QUESTIONS)
+    answers = session.get("answerrs", [])
+    return render_template("results.html", score=score, total=total, answers=answers)
+
+# Run the app
+# debug=true means Flask will reload automatically when you save changes.
+# Never use debug=True in a live/production site.
+
+if __name__ == "__main__":
+    app.run(debug=True)
