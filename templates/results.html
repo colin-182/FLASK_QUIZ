@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Results | Quiz App{% endblock %}
+{% block content %}
+
+<section class="results">
+<!-- Score card -->
+ <div class="results__card">
+
+<!-- Emoji and feedback will change depending on the score -->
+{% if score == total %}
+    <div class="results__emoji">🏆</div>
+    <h1 class="results__title">Perfect Score!</h1>
+    <p class="results__feedback">Incredible - you got every single one right!</p>
+{% elif score >= total * 0.8 %}
+    <div class="results__emoji">⭐️</div>
+    <h1 class="results__title">Outstanding!</h1>
+    <p class="results__feedback">You really know your stuff. Almost perfect!</p>
+{% elif score >= total * 0.6 %}
+    <div class="results__emoji">😊</div>
+    <h1 class="results__title">Good job!</h1>
+    <p class="results__feedback">Solid effort - Try again and you might ace it!</p>
+{% elif score >= total * 0.4 %}
+ </div>
+</section>
