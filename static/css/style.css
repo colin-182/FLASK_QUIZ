@@ -489,7 +489,7 @@ p {color: var(--muted); }
 .review-item__question {
     font-size: 0.9rem;
     color: var(--text);
-    margin_bottom: 0.25rem;
+    margin-bottom: 0.25rem;
 }
 
 .review-item__chosen {
