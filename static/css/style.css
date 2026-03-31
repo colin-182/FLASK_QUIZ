@@ -259,3 +259,45 @@ p {color: var(--muted); }
     letter-spacing: 0.1em;
     margin-top: 0.25rem;
 }
+
+/* section 7 - Quiz page */
+.quiz {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem;
+    gap: 1.5rem;
+}
+/* Progress bar */
+.quiz__progress-wrap {
+    width: 100%;
+    max-width: 640px;
+}
+
+.quiz__progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.quiz__progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+    border-radius: 99px;
+    transition: width 0.5s ease;
+}
+
+/* Question cards */
+.quiz__card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    max-width: 640px;
+    width: 100%;
+    box-shadow: var(--shadow);
+    animation: slideUp 0.4s ease both;
+}
