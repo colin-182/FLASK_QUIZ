@@ -31,30 +31,32 @@ const qsa = (selector) => [...document.querySelectorAll(selector)];
 //Current problem - if a user clicks an answer, and then quickly clicks again before the page reloads, the form submits twice, which skips a questions.
 //Fix - as soon as an answer is clicked, it immediately disable all button and highlights the chosen one. the form then submits normally.
 
-(function initAnswerButton() {
-    const form = qs("#quizForm");
-    const options = qsa(".quiz__option");
-
-    if (!form || !options.length) return;
-
-    options.forEach(button => {
-        button.addEventListener("click", function() {
-            options.forEach(btn => {
-                if (btn !== this) {btn.disabled = true; }
-                btn.style.opacity = "0.5";
-                btn.style.cursor = "not-allowed";
-                btn.style.transform = "none";
-            });
-
-            this.style.opacity = "1";
-            this.style.borderColor = "var(--accent)";
-            this.style.background = "var(--accent-glow)";
-            this.style.cursor = "default";
-
-            this.style.transform = "scale(0.98)";
-        });
+function initAnswerButtons() {
+  const form    = qs("#quizForm");
+  const options = qsa(".quiz__option");
+ 
+  if (!form || !options.length) return;
+ 
+  options.forEach(button => {
+    button.addEventListener("click", function() {
+       options.forEach(btn => {
+    
+        if (btn !== this) {
+          btn.disabled        = true;
+          btn.style.opacity   = "0.4";
+          btn.style.cursor    = "not-allowed";
+          btn.style.transform = "none";
+        }
+      });
+ 
+      this.style.opacity     = "1";
+      this.style.borderColor = "var(--accent)";
+      this.style.background  = "var(--accent-glow)";
+      this.style.cursor      = "default";
+      this.style.transform   = "scale(0.98)";
     });
-})();
+  });
+}();
 
 // Feature 4 - staggered results animation. On the results page, ease answer review row animates in one after instead of all appearing at once. A css animation delay will be needed.
 
