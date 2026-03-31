@@ -40,7 +40,7 @@ const qsa = (selector) => [...document.querySelectorAll(selector)];
     options.forEach(button => {
         button.addEventListener("click", function() {
             options.forEach(btn => {
-                btn.disabled = true;
+                if (btn !== this) {btn.disabled = true; }
                 btn.style.opacity = "0.5";
                 btn.style.cursor = "not-allowed";
                 btn.style.transform = "none";
