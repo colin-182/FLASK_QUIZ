@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Feedback | Quiz App{% endblock %}
+{% block content %}
+
+<section class="feedback">
+    <!-- Feedback section and hero card -->
+<div class="feedback__card" id="feedbackCard">
+    <div class="feedback__header">
+        <span class="feedback__emoji">🤔</span>
+        <h1 class="feedback__title">Leave feedback</h1>
+        <p class="feedback__subtitle">We'd love to hear what you thought of the quiz!</p>
+    </div>
+
+    <!-- Form posts to the /feedback route in app.py. Using id=feedbackForm so JS can find it -->
+
+    <form class="feedback__form" id="feedbackForm" novalidate>
+        <div class="form__group">
+            <label class="form__label" for="name">Your name</label>
+            <input
+            type="text"
+            id="name"
+            name="name"
+            class="form__input"
+            placeholder="eg. Jane Smith"
+            required
+            />
+            <span class="form__error" id="nameError"></span>
+        </div>
+
+        <div class="star-rating" id="starRating">
+            {% for i in rage(1, 6) %}
+            <input
+            type="radio"
+            name="rating"
+            id="star{{ i }}"
+            value="{{ i }}"
+            class="star-rating__input"
+            />
+            <label for="star{{ i }}" class="star-rating__label" title="{{ i }} star">★</label>
+            {% endfor %}
+        </div>
+    </form>
+</div>
+</section>
