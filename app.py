@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, session, request
+from flask import Flask, render_template, redirect, url_for, session, request, jsonify
 
 app = Flask(__name__)
 
@@ -133,6 +133,17 @@ def results():
     total = len(QUESTIONS)
     answers = session.get("answers", [])
     return render_template("results.html", score=score, total=total, answers=answers)
+
+# Route 6: Feedback page. Nothing will be stored - all on pretend basis
+@app.route("/feedback", method=["GET", "POST"])
+def feedback():
+    if request.method == "POST":
+        name = request.form.get("name", "").strip()
+        rating = request.form.get("rating", "").strip()
+        comment = request.form.get("comment", "").strip()
+        print(f"[Feedback] {name} rated {rating}/5: {comment}")
+        return jsonify({"success": True})
+    return render_template("feedback.html")
 
 # Run the app
 # debug=true means Flask will reload automatically when you save changes.
