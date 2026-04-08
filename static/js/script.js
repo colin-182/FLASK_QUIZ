@@ -75,3 +75,77 @@ function initAnswerButtons() {
         }, index * 80);
     });
 })();
+
+// Feature 5 - Feedback form.
+
+(function initFeedbackForm () {
+    const form = qs("#feedbackForm");
+    const successMessage = qs("#successMessage");
+    const feedbackCard = qs("#feedbackCard");
+    const submitBtn = qs("#submitBtn");
+
+    if (!form) return;
+    function validate() {
+        let valid = true;
+        
+        qs("#nameError").textContent = "";
+        qs("#ratingError").textContent = "";
+        qs("#commentError").textContent = "";
+        qs("#name").classList.remove("invalid");
+        qs("#comment").classList.remove("invalid");
+
+        if (!qs("#name").value.trim()) {
+            qs("#nameError").textContent = "Please enter your name.";
+            qs("#name").classList.add("invalid");
+            valid = false;
+        }
+
+        const ratingSelected = document.querySelector('input[name="rating"]:checked');
+        if (!ratingSelected) {
+            qs("#ratingError").textContent = "Please select a rating.";
+            qs("#starRating").classList.add("invalid");
+            valid = false;
+        } else {
+            qs("#starRating").classList.remove("invalid");
+        }
+
+        if (!qs("#comment").value.trim ()) {
+            qs("#commentError").textContent = "Please leave a comment.";
+            qs("#comment").classList.add("invalid");
+            valid = false;
+        }
+
+        return valid;
+    }
+
+    form.addEventListener("submit", async function(e) {
+        e.preventDefault();
+        if(!validate()) return;
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+
+        try {
+            const response = await fetch("/feedback", {
+                method: "POST",
+                body: new FormData(form),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                feedbackCard.style.transition = "opacity 0.4s ease";
+                feedbackCard.style.opacity = "0";
+
+                setTimeout(() => {
+                    feedbackCard.hidden = true;
+                    feedbackMessage.hidden = false;
+                }, 400);
+            }
+        } catch (error) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send Feedback";
+            console.error("Feedback error:", error);
+        }
+    });
+})();
