@@ -38,7 +38,27 @@
             />
             <label for="star{{ i }}" class="star-rating__label" title="{{ i }} star">★</label>
             {% endfor %}
+            </div>
+            <span class="form__error" id="ratingError"></span>
         </div>
+
+        <!-- comment field -->
+         <div class="form__group">
+            <label class="form__label" for="comment">Comments</label>
+            <textarea
+            id="comment"
+            name="comment"
+            placeholder="What did you enjoy? What could be improved?"
+            rows="4"
+            required></textarea>
+            <span class="form__area" id="commentError"></span>
+         </div>
+
+         <!-- submit button -->
+          <button type="submit" class="btn btn--primary btn--full" id="submitBtn"></button>
     </form>
 </div>
+
+<!-- success notification for feedback form -->
+ 
 </section>
