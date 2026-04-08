@@ -628,3 +628,36 @@ p {color: var(--muted); }
     width: 100%
 }
 
+/* success message */
+.feedback__success {
+    background: var(--bg-2);
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    border-radius: var(--radius);
+    padding: 3rem 2.5rem;
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    box-shadow: var(--shadow);
+    animation: slideUp 0.5s ease both;
+}
+
+.feedback__success-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.feedback__success h2 {
+    margin-bottom: 0.5rem;
+    color: var(--green);
+}
+
+.feedback__success p {
+    margin-bottom: 2rem;
+}
+
+.feedback__success-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
