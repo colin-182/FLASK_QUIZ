@@ -3,72 +3,62 @@
 {% block content %}
 
 <section class="feedback">
-    <!-- Feedback section and hero card -->
-<div class="feedback__card" id="feedbackCard">
-    <div class="feedback__header">
-        <span class="feedback__emoji">🤔</span>
-        <h1 class="feedback__title">Leave feedback</h1>
-        <p class="feedback__subtitle">We'd love to hear what you thought of the quiz!</p>
-    </div>
 
-    <!-- Form posts to the /feedback route in app.py. Using id=feedbackForm so JS can find it -->
+  <div class="feedback__card" id="feedbackCard">
+
+    <div class="feedback__header">
+      <span class="feedback__emoji">💬</span>
+      <h1 class="feedback__title">Leave Feedback</h1>
+      <p class="feedback__subtitle">We'd love to hear what you thought of the quiz!</p>
+    </div>
 
     <form class="feedback__form" id="feedbackForm" novalidate>
-        <div class="form__group">
-            <label class="form__label" for="name">Your name</label>
-            <input
-            type="text"
-            id="name"
-            name="name"
-            class="form__input"
-            placeholder="eg. Jane Smith"
-            required
-            />
-            <span class="form__error" id="nameError"></span>
-        </div>
 
+      <!-- Name -->
+      <div class="form__group">
+        <label class="form__label" for="name">Your Name</label>
+        <input type="text" id="name" name="name" class="form__input" placeholder="e.g. Jane Smith" required />
+        <span class="form__error" id="nameError"></span>
+      </div>
+
+      <!-- Rating - wrapped in form__group like the other fields -->
+      <div class="form__group">
+        <label class="form__label">Rating</label>
         <div class="star-rating" id="starRating">
-            {% for i in range(1, 6) %}
-            <input
-            type="radio"
-            name="rating"
-            id="star{{ i }}"
-            value="{{ i }}"
-            class="star-rating__input"
-            />
-            <label for="star{{ i }}" class="star-rating__label" title="{{ i }} star">★</label>
-            {% endfor %}
-            </div>
-            <span class="form__error" id="ratingError"></span>
+          {% for i in range(1, 6) %}
+          <input type="radio" name="rating" id="star{{ i }}" value="{{ i }}" class="star-rating__input" />
+          <label for="star{{ i }}" class="star-rating__label" title="{{ i }} star">★</label>
+          {% endfor %}
         </div>
+        <span class="form__error" id="ratingError"></span>
+      </div>
 
-        <!-- comment field -->
-         <div class="form__group">
-            <label class="form__label" for="comment">Comments</label>
-            <textarea
-            id="comment"
-            name="comment"
-            placeholder="What did you enjoy? What could be improved?"
-            rows="4"
-            required></textarea>
-            <span class="form__area" id="commentError"></span>
-         </div>
+      <!-- Comments -->
+      <div class="form__group">
+        <label class="form__label" for="comment">Comments</label>
+        <textarea id="comment" name="comment" class="form__input form__textarea" placeholder="What did you enjoy? What could be improved?" rows="4" required></textarea>
+        <span class="form__error" id="commentError"></span>
+      </div>
 
-         <!-- submit button -->
-          <button type="submit" class="btn btn--primary btn--full" id="submitBtn"></button>
+      <!-- Submit -->
+      <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+        Send Feedback
+      </button>
+
     </form>
-</div>
 
-<!-- success notification for feedback form -->
- <div class="feedback__success" id="sucessMessage" hidden>
+  </div>
+
+  <div class="feedback__success" id="successMessage" hidden>
     <div class="feedback__success-icon">✅</div>
-    <h2>Thank you!</h2>
+    <h2>Thank You!</h2>
     <p>Your feedback has been sent. We really appreciate it!</p>
     <div class="feedback__success-actions">
-        <a href="{{ url_for('start') }}" class="btn btn--primary">Play Again</a>
-        <a href="{{ url_for('home') }}" class="btn btn--ghost">Home</a>
+      <a href="{{ url_for('start') }}" class="btn btn--primary">Play Again</a>
+      <a href="{{ url_for('home') }}"  class="btn btn--ghost">Home</a>
     </div>
- </div>
+  </div>
+
 </section>
 
 {% endblock %}
