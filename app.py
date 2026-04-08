@@ -135,9 +135,9 @@ def results():
     return render_template("results.html", score=score, total=total, answers=answers)
 
 # Route 6: Feedback page. Nothing will be stored - all on pretend basis
-@app.route("/feedback", method=["GET", "POST"])
+@app.route("/feedback", methods=["GET", "POST"])
 def feedback():
-    if request.method == "POST":
+    if request.methods == "POST":
         name = request.form.get("name", "").strip()
         rating = request.form.get("rating", "").strip()
         comment = request.form.get("comment", "").strip()
