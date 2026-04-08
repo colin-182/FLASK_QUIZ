@@ -137,9 +137,9 @@ def results():
 # Route 6: Feedback page. Nothing will be stored - all on pretend basis
 @app.route("/feedback", methods=["GET", "POST"])
 def feedback():
-    if request.methods == "POST":
-        name = request.form.get("name", "").strip()
-        rating = request.form.get("rating", "").strip()
+    if request.method == "POST":
+        name    = request.form.get("name", "").strip()
+        rating  = request.form.get("rating", "").strip()
         comment = request.form.get("comment", "").strip()
         print(f"[Feedback] {name} rated {rating}/5: {comment}")
         return jsonify({"success": True})
