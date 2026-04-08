@@ -544,3 +544,51 @@ p {color: var(--muted); }
     display: block;
     margin-bottom: 0.75rem;
 }
+
+.feedback__title {
+    margin-bottom: 0.5rem;
+}
+
+.feedback__subtitle {
+    font-size: 0.95rem;
+}
+
+.feedback__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form__label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.form__input {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+    width: 100%;
+    transition: border-color var(--transition);
+}
+.form__textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form__error {
+    font-size: 0.75rem;
+    color: var(--red);
+    min-height: 1em;
+}
