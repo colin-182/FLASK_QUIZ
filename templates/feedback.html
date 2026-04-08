@@ -60,5 +60,15 @@
 </div>
 
 <!-- success notification for feedback form -->
- 
+ <div class="feedback__success" id="sucessMessage" hidden>
+    <div class="feedback__success-icon">✅</div>
+    <h2>Thank you!</h2>
+    <p>Your feedback has been sent. We really appreciate it!</p>
+    <div class="feedback__success-actions">
+        <a href="{{ url_for('start') }}" class="btn btn--primary">Play Again</a>
+        <a href="{{ url_for('home') }}" class="btn btn--ghost">Home</a>
+    </div>
+ </div>
 </section>
+
+{% endblock %}
