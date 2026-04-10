@@ -139,7 +139,7 @@ function initAnswerButtons() {
 
                 setTimeout(() => {
                     feedbackCard.hidden = true;
-                    feedbackMessage.hidden = false;
+                    successMessage.hidden = false;
                 }, 400);
             }
         } catch (error) {
