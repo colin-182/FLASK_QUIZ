@@ -1,6 +1,10 @@
 # FLASK_QUIZ
 UCD Module 3 - Python Assignment 
 
+# Render link - https://flask-quiz-lw2p.onrender.com
+# Github link - https://github.com/colin-182/FLASK_QUIZ 
+
+
 HTML checker - No errors or warnigns to show 10/4/26
 JSHINT checker - 1 warning - Use the function form of "use strict". Old ES5 concern that shouldn't apply to modern Java. 10/4/26
 CSS checker - many warnings but seem to be more about their limitations. VARs are dynamic and known by browser at runtime when it reads :root block. Validator is a static tool so when it reads code it physically can't check check dynamic values. 10/4/26
